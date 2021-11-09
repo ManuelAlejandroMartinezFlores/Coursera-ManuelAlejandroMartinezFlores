@@ -601,8 +601,6 @@ public class MapGraph {
 		// resemble distance in kilometers
 		return 100 * Math.sqrt(Math.pow(end.getX() - start.getX(), 2.0) + Math.pow(end.getY() - start.getY(), 2.0));
 	}
-	
-	
 
 	
 	
@@ -667,22 +665,6 @@ public class MapGraph {
 		List<GeographicPoint> route2 = theMap.aStarSearch(start,end);
 
 		*/
-		
-		MapGraph theMap = new MapGraph();
-		System.out.print("DONE. \nLoading the map...");
-		GraphLoader.loadRoadMap("data/maps/utc.map", theMap);
-		System.out.println("DONE.");
-
-		GeographicPoint start = new GeographicPoint(32.8648772, -117.2254046);
-		GeographicPoint end = new GeographicPoint(32.8660691, -117.217393);
-
-		// List<GeographicPoint> route = theMap.dijkstra(start,end);
-		List<GeographicPoint> route = theMap.greedy(start);
-		List<GeographicPoint> route2 = theMap.aStarSearch(start,end);
-		
-		System.out.println(route.size());
-		System.out.println(route2.size());
-
 		
 	}
 	
