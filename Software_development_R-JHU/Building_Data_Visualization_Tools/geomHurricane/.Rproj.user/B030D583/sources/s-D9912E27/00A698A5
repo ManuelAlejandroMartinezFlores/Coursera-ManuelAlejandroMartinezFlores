@@ -5,11 +5,7 @@
     "type": "r_source",
     "hash": "1107549783",
     "contents": "",
-<<<<<<< Updated upstream
     "dirty": false,
-=======
-    "dirty": true,
->>>>>>> Stashed changes
     "created": 1637966362623.0,
     "source_on_save": false,
     "relative_order": 11,
