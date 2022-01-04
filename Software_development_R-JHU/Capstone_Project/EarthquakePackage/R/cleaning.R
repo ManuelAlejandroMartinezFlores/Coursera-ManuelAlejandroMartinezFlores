@@ -25,8 +25,9 @@ clean_data <- function(data) {
           drop_na()
 
   data <- data %>% mutate(Date = make_date(Year, Mo, Dy)) %>%
-          select(Date, Location.Name, Mag, Latitude, Longitude, Deaths) %>%
-          mutate(Location.Name = get_loc(Location.Name))
+          select(Date, Location.Name, Mag, Latitude, Longitude, Deaths, Year) %>%
+          mutate(Location.Name = get_loc(Location.Name)) %>%
+          mutate(Country = get_country(Location.Name))
 
   data
 }
@@ -34,6 +35,16 @@ clean_data <- function(data) {
 get_lc <- function(loc){
   loc <- tolower(loc)
   tools::toTitleCase(dplyr::last(strsplit(loc, ':')[[1]]))
+}
+
+get_cn <- function(loc) {
+  loc <- tolower(loc)
+  loc <- tools::toTitleCase(strsplit(loc, ':')[[1]][1])
+  gsub(' ', '', loc, fixed = T)
+}
+
+get_country <- function(loc){
+  lapply(loc, get_cn)
 }
 
 get_loc <- function(loc) {
